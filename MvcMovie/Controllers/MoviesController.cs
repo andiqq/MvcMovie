@@ -64,16 +64,11 @@ namespace MvcMovie.Controllers
         // GET: Movies/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Movie == null)
-            {
-                return NotFound();
-            }
+            if (id == null || _context.Movie == null) return NotFound();
 
             var movie = await _context.Movie.FindAsync(id);
-            if (movie == null)
-            {
-                return NotFound();
-            }
+            if (movie == null) return NotFound();
+            
             return View(movie);
         }
 
